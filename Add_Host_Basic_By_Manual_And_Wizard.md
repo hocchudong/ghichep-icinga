@@ -192,3 +192,46 @@ Truy cập vào IcingaWeb2 bằng trình duyệt, chúng ta có thể thấy m�
 <a name="manual"></a>
 ### Thêm host muốn giám sát bằng Manual
 
+**Lưu ý:** Cách này icinga2 sẽ check các dịch vụ tương ứng với các port đang hoạt động trên host, vì thế không thể kiểm tra giám sát được hoàn toàn host như DISK, PROC, LOAD như ở Wizard.
+
+Với cách cấu hình này, chúng ta chỉ cần thực hiện trên Master mà không phải "động chạm" đến host. Với điều kiện, chúng ta phải biết IP của host muốn giám sát.
+
+Tạo thêm một file cấu hình mới cho host muốn giám sát.
+
+```
+vi /etc/icinga2/repository.d/WebServer.conf
+```
+
+Với nội dung như sau:
+
+```
+# Check service "ssh"
+object Service "ssh" {
+        host_name = "Web-Server-1"
+        check_command = "ssh"
+}
+# Check service "http"
+object Service "http" {
+        host_name = "Web-Server-1"
+        check_command = "http"
+}
+# Create a new host with name as "Web-Server-1"
+object Host "Web-Server-1" {
+        import "generic-host"
+		address = "192.168.100.160"
+         }
+}
+```
+
+Lưu lại và reload để icinga2 nhận file cấu hình
+
+```
+systemctl reload icinga2
+```
+
+Vào Web để kiểm tra **Overview > Hosts**
+
+<img src="http://image.prntscr.com/image/c5b1123c43814491bd808522f746c1f8.png" />
+
+
+
