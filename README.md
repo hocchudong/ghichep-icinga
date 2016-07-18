@@ -5,5 +5,5 @@ I.Lý Thuyết
 - [Các feature có trong Icinga] (https://github.com/hocchudong/ghichep-icinga/blob/master/Feature.md)
 
 II.Lab
-- [Install Icinga2] (https://github.com/hocchudong/ghichep-icinga/blob/master/lab/Install%20Icinga2.md)
-- [Add Host] (https://github.com/hocchudong/ghichep-icinga/blob/master/lab/Add_Host_Basic_By_Manual_And_Wizard.md#manual)
+- [Install Icinga2] (https://github.com/hocchudong/ghichep-icinga/blob/master/lab/1.Install%20Icinga2.md)
+- [Add Host] (https://github.com/hocchudong/ghichep-icinga/edit/master/lab/2.Add_Host_Basic_By_Manual_And_Wizard.MD)
