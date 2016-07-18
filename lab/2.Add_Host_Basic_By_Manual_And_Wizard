@@ -69,6 +69,8 @@ Mở port hoạt động của Agent bằng **Command Prompt (Run as Administrat
 netsh advfirewall firewall add rule name="Agent icinga2 - 5665" dir=in action=allow protocol=TCP localport=5665
 ```
 
+<img src="http://image.prntscr.com/image/32dda30a42384eec9baab03004b5e80f.png" /> 
+
 ##### 2.1.1 Tải Agent cho Windows
 
 https://packages.icinga.org/windows/
