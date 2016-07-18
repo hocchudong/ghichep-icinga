@@ -155,7 +155,7 @@ icinga2 node wizard
 
 Sau khi xác nhận thông tin, chúng ta chuyển sang Master icinga2 để tạo Ticket cho host
 
-http://prntscr.com/btaeet
+<img src="http://image.prntscr.com/image/99ba2718920245d3940690c1af19e473.png" />
 
 Quay trở lại host để paste Ticket, và cho phép nhận các thông tin từ Master (Server Icinga2)
 
