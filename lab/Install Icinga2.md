@@ -1,13 +1,21 @@
 # Các bước để cài đặt Icinga2 trên Centos7
 ## Mục lục 
+[1.Giới thiệu và chú thích] (#1)
 
-[1. Install Icinga2 ] (#2)
+[2. Install Icinga2 ] (#2)
 
-[2. Install icinga2-ido-mysql] (#2)
+[3. Install icinga2-ido-mysql] (#3)
 
-[3. Install and Configure icingaweb2] (#3)
+[4. Install and Configure icingaweb2] (#4)
 
-[4. Tham Khảo] (#4)
+[5. Tham Khảo] (#5)
+
+<a name="1"></a>
+### 1.Giới thiệu và chú thích
+- Prepare LAB enviroment: VMWare.
+- A Centos 7 minimal server system
+- Trong bài viết này tôi sử dụng hostname ktlam, IP address:192.168.10.10/24.
+- Database được sử dụng sẽ là mariadb và sẽ được cài đặt cùng với host.
 
 <a name="1"></a>
 ### 1. Install Icinga2
