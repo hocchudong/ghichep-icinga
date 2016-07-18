@@ -130,7 +130,7 @@ Chúng ta sẽ kiểm tra dịch vụ như DISK, LOAD, PROC,..
 
 Mở port trên host
 
-http://prntscr.com/bt6r48
+<img src="http://image.prntscr.com/image/705beb9389734f4ba22498945da04f41.png" />
 
 Thêm repo của icinga2 vào host
 
@@ -159,7 +159,7 @@ http://prntscr.com/btaeet
 
 Quay trở lại host để paste Ticket, và cho phép nhận các thông tin từ Master (Server Icinga2)
 
-<img src="http://image.prntscr.com/image/d692a934fcc1429380cfe84cc2ba08ab.png" >
+<img src="http://image.prntscr.com/image/d692a934fcc1429380cfe84cc2ba08ab.png" />
 
 Cuối cùng là khởi động lại icinga2 trên host bằng lệnh
 
