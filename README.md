@@ -6,4 +6,4 @@ I.Lý Thuyết
 
 II.Lab
 - [Install Icinga2] (https://github.com/hocchudong/ghichep-icinga/blob/master/lab/1.Install%20Icinga2.md)
-- [Add Host] (https://github.com/hocchudong/ghichep-icinga/edit/master/lab/2.Add_Host_Basic_By_Manual_And_Wizard.MD)
+- [Add Host] (https://github.com/hocchudong/ghichep-icinga/blob/master/lab/2.Add_Host_Basic_By_Manual_And_Wizard.MD)
