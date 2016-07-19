@@ -3,11 +3,11 @@
 ###1 Host và Service
 Icinga2 có thể được dùng để giám sát khả năng sẵn sàng của các host và service. Các host và service có thể là :
 
-	-	Network service (HTTP, SMTP, SNMP, SSH...)
-	-	Printer
-	-	Switch/Router
-	-	Cảm biến nhiệt độ
-	-	Các service local hoặc có thể truy cập qua mạng
+<li>Network service (HTTP, SMTP, SNMP, SSH...)</li>
+<li>Printer</li>
+<li>Switch/Router</li>
+<li>Cảm biến nhiệt độ</li>
+<li>Các service local hoặc có thể truy cập qua mạng</li>
 
 Các object về host cung cấp 1 cơ chế tới nhóm dịc vụ đang chạy trên cùng 1 thiết bị vật lý.
 
