@@ -2,6 +2,7 @@
 
 ###1 Host và Service
 Icinga2 có thể được dùng để giám sát khả năng sẵn sàng của các host và service. Các host và service có thể là :
+
 	-	Network service (HTTP, SMTP, SNMP, SSH...)
 	-	Printer
 	-	Switch/Router

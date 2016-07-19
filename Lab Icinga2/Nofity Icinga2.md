@@ -1,6 +1,6 @@
 ###I. Notify trong Icinga2
 
-Icinga2 notify sử dụng 2 template cảnh báo trong /etc/icinga2/scripts.
+**Icinga2 Notify** sử dụng 2 template cảnh báo trong /etc/icinga2/scripts.
 
 ####1. Điều kiện : 
  - Tính năng notify trên Icinga2 được bật
