@@ -1,6 +1,6 @@
-### I. Giám sát cơ bản
+## I. Giám sát cơ bản
 
-####1 Host và Service
+###1 Host và Service
 Icinga2 có thể được dùng để giám sát khả năng sẵn sàng của các host và service. Các host và service có thể là :
 	-	Network service (HTTP, SMTP, SNMP, SSH...)
 	-	Printer
@@ -32,7 +32,7 @@ Ví dụ trên sẽ tạo 1 object **Host**, thuộc tính **address** sẽ đư
 
 2 object được tạo sau đó là **ping4** và **http** thuộc về host có trong **host_name**.
 
-####2 Các trạng thái của Host và service
+###2 Các trạng thái của Host và service
 ####2.1 Các trạng thái của Host
  - UP : Host khả dụng
  - DOWN : Host không khả dụng
@@ -48,8 +48,15 @@ Ví dụ trên sẽ tạo 1 object **Host**, thuộc tính **address** sẽ đư
 <li>Khi có vấn đề xảy ra với host/service, Icinga2 sẽ không lập tức gửi cảnh báo đi ngay, mà sẽ tiến hành kiểm tra lại trước 
 khi gửi cảnh báo, nhằm tránh việc những cảnh báo không quan trọng được gửi đi liên tục.</li>
 <li>Trong thời gian kiểm tra này, object rơi vào trạng thái **SOFT**</li>
-![icinga](/images/icinga-01.png)
 <li>Sau khi tất cả re-check được tiến hành, và object được kiểm tra vẫn trong trạng thái non-OK, thì host/service sẽ chuyển 
 sang trạng thái **HARD** và cảnh báo được gửi đi.
+![icinga](/images/icinga-01.png)
 <li>Để thay đổi thời gian và số lần kiểm tra, hãy tìm đến /etc/icinga2/conf.d/templates.conf
 ![icinga](/images/icinga-02.png)
+
+###3. Template
+Icinga2 cung cấp sẵn các template chứa các thông số cơ bản cho host, service, hay việc gửi cảnh báo. Ta cũng có thể tự tạo
+ template để tùy chỉnh theo nhu cầu (như việc thay đổi thời gian và số lần re-check ở ví dụ trên), và import template mới
+ vào các object.
+![icinga](/images/icinga-03.png)
+![icinga](/images/icinga-04.png)
