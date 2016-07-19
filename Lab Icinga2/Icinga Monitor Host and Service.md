@@ -36,6 +36,7 @@ Ví dụ trên sẽ tạo 1 object **Host**, thuộc tính **address** sẽ đư
 ####2.1 Các trạng thái của Host
  - UP : Host khả dụng
  - DOWN : Host không khả dụng
+ 
 ####2.2 Các trạng thái của Service
 
  - OK : Service đang hoạt động tốt
