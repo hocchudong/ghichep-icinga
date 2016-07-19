@@ -37,10 +37,12 @@ Ví dụ trên sẽ tạo 1 object **Host**, thuộc tính **address** sẽ đư
  - UP : Host khả dụng
  - DOWN : Host không khả dụng
 ####2.2 Các trạng thái của Service
+
  - OK : Service đang hoạt động tốt
  - WARNING : Service đang có 1 số vấn đề nhưng vẫn trong tình trạng làm việc.
  - CRITICAL : Service đang trong trạng thái nguy hiểm
  - UNKNOW : Không thể kiểm tra trạng thái của Service
+ 
 ####2.3 Trạng thái Hard và Soft 
 <ul>
 <li>Khi có vấn đề xảy ra với host/service, Icinga2 sẽ không lập tức gửi cảnh báo đi ngay, mà sẽ tiến hành kiểm tra lại trước 
