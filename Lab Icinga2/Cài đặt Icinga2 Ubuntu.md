@@ -22,6 +22,9 @@ apt-get install icinga2-ido-mysql -y
 ```
 Chú ý khai báo password cho mysql và IDO database, nếu chọn config kiểu cấu hình tự động, IDO database tự động config cấu hình với Mysql.
 
+![icinga](/images/i30.png)
+![icinga](/images/i31.png)
+
 Bật feature ido-mysql cho Icinga2
 
 ```sh
@@ -68,6 +71,9 @@ Tạo file config cho web server
 icingacli setup config webserver apache --document-root /usr/share/icingaweb2/public
 ```
 
+Thay đổi date.timezone php trong thư mục /etc/php5/apache2/php.ini 
+![icinga](/images/i29.png)
+
 Phân quyền user và group
 ```sh
 addgroup --system icingaweb2
@@ -82,8 +88,6 @@ Tạo thư mục monitor :
 mkdir /etc/icingaweb2/modules/monitoring
 chmod 777 /etc/icingaweb2/modules/monitoring
 ```
-Thay đổi date.timezone php trong thư mục /etc/: 
-![icinga](/images/i29.png)
 
 Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
 
@@ -147,4 +151,3 @@ Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
 
 ![icinga](/images/i28.png)
 
-![icinga](/images/i30.png)
