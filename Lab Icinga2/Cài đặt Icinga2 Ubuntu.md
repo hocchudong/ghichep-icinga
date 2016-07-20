@@ -20,7 +20,7 @@ apt-get install icinga2 -y
 apt-get install mysql-server mysql-client -y
 apt-get install icinga2-ido-mysql -y
 ```
-Chú ý khai báo password cho mysql và IDO database
+Chú ý khai báo password cho mysql và IDO database, nếu chọn config kiểu cấu hình tự động, IDO database tự động config cấu hình với Mysql.
 
 Bật feature ido-mysql cho Icinga2
 
@@ -131,10 +131,8 @@ Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
 
 ![icinga](/images/i23.png)
 
-Restart lại Icinga2 để nhận các thông tin về database :
-```sh
-service icinga2 restart
-```
+ - Lấy thông tin về database của ido-mysql
+
 ![icinga](/images/i24.png)
 
  - Nhập Lấy thông tin database từ file ido-mysql.conf
