@@ -151,3 +151,7 @@ Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
 
 ![icinga](/images/i28.png)
 
+ - Setup thành công và login và IcingaWeb2
+![icinga](/images/i32.png)
+![icinga](/images/i33.png)
+ 
