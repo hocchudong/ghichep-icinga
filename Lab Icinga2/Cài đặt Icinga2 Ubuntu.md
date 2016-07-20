@@ -82,33 +82,47 @@ mkdir /etc/icingaweb2/modules/monitoring
 chmod 777 /etc/icingaweb2/modules/monitoring
 ```
 Thay đổi date.timezone php : 
-![icinga](/images/icinga-29.png)
+![icinga](/images/i29.png)
 
 Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
  - Nhập Token
-![icinga](/images/icinga-12.png)
+![icinga](/images/i12.png)
 
  - Chọn các Module để cài đặt
-![icinga](/images/icinga-13.png)
+![icinga](/images/i3.png)
 
-![icinga](/images/icinga-14.png)
-![icinga](/images/icinga-15.png)
-![icinga](/images/icinga-16.png)
-![icinga](/images/icinga-17.png)
-![icinga](/images/icinga-18.png)
-![icinga](/images/icinga-19.png)
-![icinga](/images/icinga-20.png)
-![icinga](/images/icinga-21.png)
-![icinga](/images/icinga-22.png)
-![icinga](/images/icinga-23.png)
+![icinga](/images/i14.png)
+
+![icinga](/images/i15.png)
+
+![icinga](/images/i16.png)
+
+![icinga](/images/i17.png)
+
+![icinga](/images/i18.png)
+
+![icinga](/images/i19.png)
+
+![icinga](/images/i20.png)
+
+![icinga](/images/i21.png)
+
+![icinga](/images/i22.png)
+
+![icinga](/images/i23.png)
 
 Restart lại Icinga2 để nhận các thông tin về database :
 ```sh
 service icinga2 restart
 ```
-![icinga](/images/icinga-24.png)
-![icinga](/images/icinga-25.png)
-![icinga](/images/icinga-26.png)
-![icinga](/images/icinga-27.png)
-![icinga](/images/icinga-28.png)
-![icinga](/images/icinga-29.png)
+![icinga](/images/i24.png)
+
+![icinga](/images/i25.png)
+
+![icinga](/images/i26.png)
+
+![icinga](/images/i27.png)
+
+![icinga](/images/i28.png)
+
+![icinga](/images/i29.png)
