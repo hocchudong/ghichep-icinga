@@ -17,14 +17,15 @@ apt-get install icinga2 -y
 ####Step 2 : Cài đặt và cấu hình Database IDO MYSQL
 
 ```sh
-apt-get install mysql-server mysql-client icinga2-ido-mysql -y
+apt-get install mysql-server mysql-client -y
+apt-get install icinga2-ido-mysql -y
 ```
 Chú ý khai báo password cho mysql và IDO database
 
 Bật feature ido-mysql cho Icinga2
 
 ```sh
-icinga2 feature enable ido-mysql command
+icinga2 feature enable ido-mysql command 
 service icinga2 restart
 ```
 
@@ -81,19 +82,28 @@ Tạo thư mục monitor :
 mkdir /etc/icingaweb2/modules/monitoring
 chmod 777 /etc/icingaweb2/modules/monitoring
 ```
-Thay đổi date.timezone php : 
+Thay đổi date.timezone php trong thư mục /etc/: 
 ![icinga](/images/i29.png)
 
 Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
+
  - Nhập Token
+ 
 ![icinga](/images/i12.png)
 
  - Chọn các Module để cài đặt
+ 
 ![icinga](/images/i3.png)
+
+ - Cài đặt các gói php cần thiết cho Icinga2
 
 ![icinga](/images/i14.png)
 
+ - Chọn kiểu xác thực cho Icinga2
+
 ![icinga](/images/i15.png)
+
+ - Tạo database cho IcingWeb2
 
 ![icinga](/images/i16.png)
 
@@ -101,13 +111,23 @@ Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
 
 ![icinga](/images/i18.png)
 
+ - Tạo user và password đăng nhập IcingaWeb2
+
 ![icinga](/images/i19.png)
+
+ - Cấu hình logging khi cài đặt
 
 ![icinga](/images/i20.png)
 
+ - Review các cấu hình cơ bản
+
 ![icinga](/images/i21.png)
 
+ - Thực hiện cấu hình cho module Monitor
+
 ![icinga](/images/i22.png)
+
+ - Chọn Monitoring backend 
 
 ![icinga](/images/i23.png)
 
@@ -117,12 +137,16 @@ service icinga2 restart
 ```
 ![icinga](/images/i24.png)
 
+ - Nhập Lấy thông tin database từ file ido-mysql.conf
+
 ![icinga](/images/i25.png)
 
 ![icinga](/images/i26.png)
 
 ![icinga](/images/i27.png)
 
+ - Review lại các thông tin về module Monitor
+
 ![icinga](/images/i28.png)
 
-![icinga](/images/i29.png)
+![icinga](/images/i30.png)
