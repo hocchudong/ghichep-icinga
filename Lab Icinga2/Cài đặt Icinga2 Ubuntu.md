@@ -93,7 +93,7 @@ Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
 
  - Chọn các Module để cài đặt
  
-![icinga](/images/i3.png)
+![icinga](/images/i13.png)
 
  - Cài đặt các gói php cần thiết cho Icinga2
 
