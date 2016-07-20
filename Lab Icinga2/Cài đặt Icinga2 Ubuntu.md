@@ -83,10 +83,14 @@ chmod 777 /etc/icingaweb2/modules/monitoring
 ```
 Thay đổi date.timezone php : 
 ![icinga](/images/icinga-29.png)
+
 Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
-![icinga](/images/icinga-11.png)
+ - Nhập Token
 ![icinga](/images/icinga-12.png)
+
+ - Chọn các Module để cài đặt
 ![icinga](/images/icinga-13.png)
+
 ![icinga](/images/icinga-14.png)
 ![icinga](/images/icinga-15.png)
 ![icinga](/images/icinga-16.png)
