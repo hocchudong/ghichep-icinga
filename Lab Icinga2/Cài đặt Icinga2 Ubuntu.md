@@ -12,7 +12,7 @@ add-apt-repository ppa:formorer/icinga
 apt-get update
 apt-get install icinga2 -y
 ```
-![icinga](/images/icinga-11.png)
+![icinga](/images/i11.png)
 
 ####Step 2 : Cài đặt và cấu hình Database IDO MYSQL
 
