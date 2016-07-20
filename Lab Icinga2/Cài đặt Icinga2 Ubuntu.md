@@ -1,0 +1,110 @@
+###I. Cai đặt Icinga2 trên Ubuntu
+OS : Ubuntu 14.04 x 64
+Model : ALL-in-one
+Thành phần : Icinga2 Server, IcingaWeb2, IDO database sủ dụng MySQL.
+
+###II. Cài đặt
+
+####Step 1 : Cài đặt Icinga2 Server
+
+```sh
+add-apt-repository ppa:formorer/icinga
+apt-get update
+apt-get install icinga2 -y
+```
+![icinga](/images/icinga-11.png)
+
+####Step 2 : Cài đặt và cấu hình Database IDO MYSQL
+
+```sh
+apt-get install mysql-server mysql-client icinga2-ido-mysql -y
+```
+Chú ý khai báo password cho mysql và IDO database
+
+Bật feature ido-mysql cho Icinga2
+
+```sh
+icinga2 feature enable ido-mysql command
+service icinga2 restart
+```
+
+####Step 3 : Cài đặt Icinagweb2
+
+Add user của webserver vào group icingamd để có quyền sử dụng command cho icinga2
+
+```sh
+usermod -a -G nagios www-data
+```
+
+Cài đặt Icingaweb2
+
+```sh
+wget -O - http://packages.icinga.org/icinga.key | apt-key add -
+add-apt-repository 'deb http://packages.icinga.org/ubuntu icinga-trusty main'
+apt-get update
+apt-get install icingaweb2 -y
+```
+- Tạo token xác thực : 
+```sh
+icingacli setup token create
+```
+
+Câu lệnh để xem token :
+
+```sh
+icingacli setup token show
+```
+
+Cài đặt các gói php :
+
+```sh
+apt-get -y install php5 php5-cgi libapache2-mod-php5 php5-common php-pear php5-json php5-gd php5-imagick php5-pgsql php5-intl php5-ldap php5-mysql 
+```
+
+Tạo file config cho web server
+
+```sh
+icingacli setup config webserver apache --document-root /usr/share/icingaweb2/public
+```
+
+Phân quyền user và group
+```sh
+addgroup --system icingaweb2
+usermod -a -G icingaweb2 www-data
+service apache2 restart
+icingacli setup config directory
+```
+
+Tạo thư mục monitor :
+
+```sh
+mkdir /etc/icingaweb2/modules/monitoring
+chmod 777 /etc/icingaweb2/modules/monitoring
+```
+Thay đổi date.timezone php : 
+![icinga](/images/icinga-29.png)
+Truy cập vào broswer với địa chỉ : http://ip/icingaweb2/setup
+![icinga](/images/icinga-11.png)
+![icinga](/images/icinga-12.png)
+![icinga](/images/icinga-13.png)
+![icinga](/images/icinga-14.png)
+![icinga](/images/icinga-15.png)
+![icinga](/images/icinga-16.png)
+![icinga](/images/icinga-17.png)
+![icinga](/images/icinga-18.png)
+![icinga](/images/icinga-19.png)
+![icinga](/images/icinga-20.png)
+![icinga](/images/icinga-21.png)
+![icinga](/images/icinga-22.png)
+![icinga](/images/icinga-23.png)
+
+Restart lại Icinga2 để nhận các thông tin về database :
+```sh
+service icinga2 restart
+```
+![icinga](/images/icinga-24.png)
+![icinga](/images/icinga-25.png)
+![icinga](/images/icinga-26.png)
+![icinga](/images/icinga-27.png)
+![icinga](/images/icinga-28.png)
+![icinga](/images/icinga-29.png)
