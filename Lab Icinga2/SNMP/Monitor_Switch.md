@@ -18,6 +18,7 @@
 	<li>Model: Cisco 3550</li>
 	<li>Ip: 192.168.100.220</li>
 	<li>Interface: FastEthernet0/1-24</li>
+	<li>Comunity: public</li>
 </ul>
 
 <a name="2"></a>
@@ -46,8 +47,9 @@ tar -xzvf nagios-snmp-plugins.1.1.1.tgz
 ### 3.Cấu hình monitor SNMP
 - Trước khi cấu hình monitor SNMP, set các view table cho các đối tượng cần monitor ở trong file /etc/snmp/snmpd.conf.
 - Link về các view table: http://nagios.manubulon.com/index_info.html
-- Bắt đầu thêm host,service và command để monitor switch, có thể khai báo các hàm vào các file host.conf, service.conf, command.conf có sẵn ở đường dẫn /etc/icinga2/conf.d. Nhưng để dễ quản lí và fix lỗi, tôi sẽ tạo riêng 1 file config Switch1.conf tại đường dẫn :/etc/icinga2/repository.d/hosts/Switch.
-- Khai báo host:
+- Bắt đầu thêm host,service và command để monitor switch, có thể khai báo các hàm vào các file host.conf, service.conf, command.conf có sẵn ở đường dẫn /etc/icinga2/conf.d. Nhưng để dễ quản lí và fix lỗi, tôi sẽ tạo riêng các file config host.conf, service.conf, command.conf tại đường dẫn :/etc/icinga2/repository.d/hosts/Switch.
+#### 3.1.Khai báo host
+- Khai báo host trong file host.conf
 ```sh
 object host Switch {
 	import "generic-host"
@@ -65,14 +67,16 @@ object host Switch {
 }
 ```
 
-### a.Check-Load
+#### 3.2.Khai báo service
+##### a.Check-Load
 - Bạn có thể vào đường dẫn /usr/lib64/nagios/plugins và chạy file *./check_snmp_load.pl -h* để xem các tham số cần có.
 - Mẫu vd: http://nagios.manubulon.com/snmp_load.html
 - Trước khi chạy plugins với icinga2, bạn có thể chạy plugins riêng với câu lệnh:
 ```sh
 ./check_snmp_load.pl -H 192.168.100.220 -C public -2 -T cisco -w 3,2,1 -c 3,3,2 -f
+```
 
-- Khai báo service vào tiếp trong file Switch.conf
+- Khai báo service vào trong file service.conf
 ```sh
 object Service "snmp-load" {
     host_name           = "Switch"
@@ -87,7 +91,7 @@ object Service "snmp-load" {
 }
 ```
 
-### b.Check-Memory
+##### b.Check-Memory
 - Tương tự chạy file *./check_snmp_mem.pl -h* để xem các tham số cần có.
 - Mẫu vd: http://nagios.manubulon.com/snmp_mem.html
 - Tương tự check plugins riêng:
@@ -95,7 +99,7 @@ object Service "snmp-load" {
 ./check_snmp_mem.pl -H 192.168.100.220 -C public -2 -w 99 -c 100 -I -f
 ```
 
-- Khai báo service và command vào tiếp trong file Switch.conf
+- Khai báo tiếp service vào trong file service.conf
 ```sh
 apply Service "switch-memory" {
 	import "generic-service"
@@ -105,6 +109,30 @@ apply Service "switch-memory" {
 	// Gọi đến address của switch.
 	assign where host.vars.address
 }
+```
+
+##### c.Check-Interface
+- Tương tự chạy file *./check_snmp_int.pl -h* để xem các tham số cần có.
+- Mẫu vd: http://nagios.manubulon.com/snmp_int.html
+- Check plugins riêng:
+```sh
+./check_snmp_int.pl -H 192.168.100.220 -C public -n "Fast.*0.1[1234]" 
+```
+
+- Khai báo tiếp service vào trong file service.conf
+```sh
+apply Service "Switch-interface: " for (int => config in host.vars.int){
+	import "generic-service"
+	check_command = "check_interface"
+	vars += config
+	assign where host.vars.int
+}
+```
+
+#### 3.3.Khai báo command
+##### a.Check-Memory
+- Khai báo command trong file command.conf
+```sh
 object CheckCommand "check_memory" {
 	import "plugin-check-command"
 	command = [ PluginDir + "/check_snmp_mem.pl", "-2", "-f", "-I"]
@@ -118,23 +146,9 @@ object CheckCommand "check_memory" {
 }
 ```
 
-### c.Check-Interface
-- Tương tự chạy file *./check_snmp_int.pl -h* để xem các tham số cần có.
-- Mẫu vd: http://nagios.manubulon.com/snmp_int.html
-- Check plugins riêng:
+##### b.check_interface
+- Khai báo tiếp command trong file command.conf
 ```sh
-./check_snmp_int.pl -H 192.168.100.220 -C public -n "Fast.*0.1[1234]" 
-```
-
-- Khai báo service và command vào tiếp trong file Switch.conf
-```sh
-apply Service "Switch-interface: " for (int => config in host.vars.int){
-	import "generic-service"
-	check_command = "check_interface"
-	vars += config
-	assign where host.vars.int
-}
-// SNMP Command interface
 object CheckCommand "check_interface" {
 	import "plugin-check-command"
 	command = [ PluginDir + "/check_snmp_int.pl", "-2", "-r", "-f", "-k", "-Y"] 
