@@ -74,7 +74,7 @@ object CheckCommand "mysql-health" {
 	import "plugin-check-command"
 	command = [ PluginDir + "/check_mysql_health"]
 	arguments ={
-	"--hostname" = "$mysql-addr$"
+	"--hostname" = "$hostname$"
 	"--username" = "$username$"
 	"--password" = "$password$"
 	"--mode"	 = "$mode$"
@@ -85,7 +85,7 @@ object CheckCommand "mysql-health" {
 
 Sau đó, chúng ta thêm một `host` khai báo thông tin về máy chủ DB.
 
-Mở file `/etc/icinga2/conf.d/host.conf`
+Mở file `/etc/icinga2/conf.d/hosts.conf`
 
 ```
  object Host "DB-1" {
@@ -102,12 +102,13 @@ Mở file `/etc/icinga2/conf.d/services.conf`, và thêm:
 apply Service "check-mysql-health" {
 	import "generic-service"
 	check_command = "mysql-health"
-	vars.address = host.address
+	vars.hostname = host.address
 	vars.username = "checker"
 	vars.password = "123"
 	vars.mode = "connection-time" // Mode kiểm tra thời gian kết nối đến DB
 	assign where host.name == "DB-1"
 }
+
 apply Service "check-mysql-threads-connected" {
 	import "generic-service"
 	check_command = "mysql-health"
@@ -116,13 +117,13 @@ apply Service "check-mysql-threads-connected" {
 	vars.password = "123"
 	vars.mode = "threads-connected" // Mode kiểm tra số USER kết nối đến DB
 	vars.units = "%"
-	assign where host.name == "MySQL-Health"
+	assign where host.name == "DB-1"
 }
 ```
 
 Các mode khác xem tại đây: https://labs.consol.de/nagios/check_mysql_health/#command-line-parameters
 
-Sau khi thêm các dịch vụ theo dõi DB mà bạn muốn, chúng ta lưu file `service.conf` và khởi động lại icinga2 để nó nhận những gì mình vừa cấu hình.
+Sau khi thêm các dịch vụ theo dõi DB mà bạn muốn, chúng ta lưu file `services.conf` và khởi động lại icinga2 để nó nhận những gì mình vừa cấu hình.
 
 ```
 systemctl restart icinga2
