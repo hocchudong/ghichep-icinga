@@ -65,6 +65,7 @@ vi \etc\icinga2\conf.d\notifications.conf
 ```
 
 Nếu giám sát host, chúng ta thay **Service** **bằng Host**
+
 **Lưu ý:** Thời gian **end** của nhóm 1 phải bằng thời gian **begin** của nhóm 2
 
 ```
@@ -107,6 +108,6 @@ Sau khoảng thời gian chưa đến 1 phút, icinga2 đã gửi đến **Nhom-
 
 Xem lại thông tin gửi mail trên icinga2 **Reporting > Alert Summary**
 
-<img src="http://image.prntscr.com/image/af3afbe4525449fda5a9d42041f4d060.png" />
+<img src="http://image.prntscr.com/image/9c0b02863d8745788636d0b0d96e22ab.png" />
 
 Chúng ta thấy sau khoảng thời gian ~5p, service không OK thì sẽ gửi đến **Nhom-support-2**. Và sau khi service up, sẽ có mail gửi đến cả 2 nhóm.
