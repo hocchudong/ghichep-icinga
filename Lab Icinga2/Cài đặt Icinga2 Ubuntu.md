@@ -8,7 +8,7 @@ Thành phần : Icinga2 Server, IcingaWeb2, IDO database sủ dụng MySQL.
 ####Step 1 : Cài đặt Icinga2 Server
 
 ```sh
-add-apt-repository ppa:formorer/icinga
+sudo add-apt-repository ppa:formorer/icinga
 apt-get update
 apt-get install icinga2 -y
 ```
