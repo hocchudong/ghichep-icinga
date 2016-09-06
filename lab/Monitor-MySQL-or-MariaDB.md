@@ -23,7 +23,7 @@ Như vậy là ta đã hoàn thành công việc ở host DB.
 
 ### Thêm plugin `check_mysql_health` vào thư mục plugin của icinga2
 
-Tải plugin ở đây: http://abc.com
+Tải plugin ở đây: https://github.com/hoangdh/ghichep-icinga/blob/master/lab/plugins/check_mysql_health
 
 Sau khi tải về, ta phân quyền cho nó bằng lệnh
 
